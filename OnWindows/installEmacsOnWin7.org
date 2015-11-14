@@ -1,0 +1,37 @@
+* install mingw
+** install mingw
+  default setting while installing, and default path is /c:MinGW/. add /C:\MinGW\bin to environment variable /Path/.
+** install msys
+  during installing, select path of mingw, you shoule type /y/ twice on command line, and input correct mingw path on command line.
+** install mingw-get
+  download [[http://sourceforge.net/projects/mingw/files/latest/download?source=files][mingw-get-setup.exe]], and install it into /c:MinGW/.
+* install emacs
+  unzip the zip file into a directory, like /c:\emacs-24.5/, goto /c:\emacs-24.5\bin/, click /addpm.exe/.
+* ggtags on windows
+** install 
+*** mingw32-libpdcurses 
+  run =mingw-get install mingw32-libpdcurses= on /msys.bat/.
+*** pdc34dllw 
+   download [[http://sourceforge.net/projects/pdcurses/files/pdcurses/][pdc34dllw.zip]], unzip it, copy /pdcurses.lib/ into /C:\MinGW\lib/; copy(and replace) /curses.h/ and /panel.h/ 
+   into /C:\MinGW\include/, copy /pdcurses.dll/ into /C:\MinGW\bin/.
+*** compile GNU Global
+   download and unzip GNU Global into a directory, like /global-6.3.3/, run commands below on /msys.bat/
+   #+begin_src sh
+   cd global-6.3.3
+   ./configure
+   make # if -lcurses not found, please change all -lcurses in configure file into -lpdcurses, then ./configure again
+   make install   # by default, it will be installed in /usr/local
+   #+end_src
+*** add executable files into bin/ directory of emacs
+  /global.exe/, /globash/, /gozilla.exe/, /gtags.exe/, /gtags-cscope.exe/, /htags.exe/, /htags-server/
+  
+  For me, the directory is /C:\Program Files (x86)\emacs-24.2-bin-i386\emacs-24.2\bin/, then add it into windows 
+  environment variable /Path/.
+
+* plantuml
+Download [[http://plantuml.com/download.html][plantuml.jar]] into a executable path. 
+
+Set variable /org-plantuml-jar-path/ in .emacs or init.el.
+
+If it cannot display image in format of png in org mode. check the variable /image-library-alist/,
+it maps image type to a list of dlls, you should download one of dll into an executable path. 

@@ -1,0 +1,6 @@
+* ggtags
+  if some files are not taked as c source file, like files postfix with .sig, you can copy file /gtags.conf/ into the project, 
+  and add /.sig/ in field ":langmap", like ":langmap=c\:.c.h.sig".
+  
+  verify it with /gtags --config=langmap/, you can see /c:.c.h.sig/ on console.
+* 

@@ -1,0 +1,37 @@
+linetable.o linetable.o: linetable.c ../config.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/stdlib.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/_mingw.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/include/stddef.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/string.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/sys/stat.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/sys/types.h \
+  die.h c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/include/stdarg.h \
+  linetable.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/stdio.h \
+  varray.h strbuf.h
+
+../config.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/stdlib.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/_mingw.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/include/stddef.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/string.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/sys/stat.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/sys/types.h:
+
+die.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/include/stdarg.h:
+
+linetable.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/stdio.h:
+
+varray.h:
+
+strbuf.h:

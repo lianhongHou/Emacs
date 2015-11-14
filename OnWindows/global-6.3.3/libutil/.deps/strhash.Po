@@ -1,0 +1,40 @@
+strhash.o strhash.o: strhash.c ../config.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/stdlib.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/_mingw.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/include/stddef.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/stdio.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/include/stdarg.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/sys/types.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/string.h \
+  checkalloc.h die.h strhash.h pool.h ../libglibc/obstack.h \
+  ../libdb/queue.h ../libglibc/hash-string.h
+
+../config.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/stdlib.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/_mingw.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/include/stddef.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/stdio.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/include/stdarg.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/sys/types.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/string.h:
+
+checkalloc.h:
+
+die.h:
+
+strhash.h:
+
+pool.h:
+
+../libglibc/obstack.h:
+
+../libdb/queue.h:
+
+../libglibc/hash-string.h:

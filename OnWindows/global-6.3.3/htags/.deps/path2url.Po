@@ -1,0 +1,176 @@
+path2url.o path2url.o: path2url.c ../config.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/stdlib.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/_mingw.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/include/stddef.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/string.h \
+  ../libutil/global.h ../libutil/abs2rel.h ../libutil/args.h \
+  ../libutil/gpathop.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/stdio.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/include/stdarg.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/sys/types.h \
+  ../libutil/gparam.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/sys/param.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/limits.h \
+  ../libutil/dbop.h ../libdb/db.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/unistd.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/io.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/process.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/stdint.h \
+  ../libglibc/getopt.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/ctype.h \
+  ../libdb/compat.h ../libglibc/regex.h ../libutil/strbuf.h \
+  ../libutil/assoc.h ../libutil/char.h ../libutil/checkalloc.h \
+  ../libutil/compress.h ../libutil/conf.h ../libutil/date.h \
+  ../libutil/defined.h ../libutil/die.h ../libutil/encodepath.h \
+  ../libutil/env.h ../libutil/fileop.h ../libutil/find.h \
+  ../libutil/format.h ../libutil/getdbpath.h ../libutil/gtagsop.h \
+  ../libutil/idset.h ../libutil/strhash.h ../libutil/pool.h \
+  ../libglibc/obstack.h ../libdb/queue.h ../libutil/varray.h \
+  ../libutil/is_unixy.h ../libutil/langmap.h ../libutil/linetable.h \
+  ../libutil/locatestring.h ../libutil/logging.h ../libutil/makepath.h \
+  ../libutil/path.h ../libutil/rewrite.h ../libutil/split.h \
+  ../libutil/statistics.h ../libutil/strlimcpy.h ../libutil/strmake.h \
+  ../libutil/tab.h ../libutil/test.h ../libutil/token.h \
+  ../libutil/usable.h ../libutil/version.h ../libutil/xargs.h \
+  ../libutil/assoc.h htags.h ../libutil/gparam.h ../libutil/gtagsop.h \
+  path2url.h
+
+../config.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/stdlib.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/_mingw.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/include/stddef.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/string.h:
+
+../libutil/global.h:
+
+../libutil/abs2rel.h:
+
+../libutil/args.h:
+
+../libutil/gpathop.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/stdio.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/include/stdarg.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/sys/types.h:
+
+../libutil/gparam.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/sys/param.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/limits.h:
+
+../libutil/dbop.h:
+
+../libdb/db.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/unistd.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/io.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/process.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/stdint.h:
+
+../libglibc/getopt.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/ctype.h:
+
+../libdb/compat.h:
+
+../libglibc/regex.h:
+
+../libutil/strbuf.h:
+
+../libutil/assoc.h:
+
+../libutil/char.h:
+
+../libutil/checkalloc.h:
+
+../libutil/compress.h:
+
+../libutil/conf.h:
+
+../libutil/date.h:
+
+../libutil/defined.h:
+
+../libutil/die.h:
+
+../libutil/encodepath.h:
+
+../libutil/env.h:
+
+../libutil/fileop.h:
+
+../libutil/find.h:
+
+../libutil/format.h:
+
+../libutil/getdbpath.h:
+
+../libutil/gtagsop.h:
+
+../libutil/idset.h:
+
+../libutil/strhash.h:
+
+../libutil/pool.h:
+
+../libglibc/obstack.h:
+
+../libdb/queue.h:
+
+../libutil/varray.h:
+
+../libutil/is_unixy.h:
+
+../libutil/langmap.h:
+
+../libutil/linetable.h:
+
+../libutil/locatestring.h:
+
+../libutil/logging.h:
+
+../libutil/makepath.h:
+
+../libutil/path.h:
+
+../libutil/rewrite.h:
+
+../libutil/split.h:
+
+../libutil/statistics.h:
+
+../libutil/strlimcpy.h:
+
+../libutil/strmake.h:
+
+../libutil/tab.h:
+
+../libutil/test.h:
+
+../libutil/token.h:
+
+../libutil/usable.h:
+
+../libutil/version.h:
+
+../libutil/xargs.h:
+
+../libutil/assoc.h:
+
+htags.h:
+
+../libutil/gparam.h:
+
+../libutil/gtagsop.h:
+
+path2url.h:

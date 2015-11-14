@@ -1,0 +1,14 @@
+is_unixy.o is_unixy.o: is_unixy.c ../config.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/stdlib.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/_mingw.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/include/stddef.h is_unixy.h
+
+../config.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/stdlib.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/_mingw.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/include/stddef.h:
+
+is_unixy.h:

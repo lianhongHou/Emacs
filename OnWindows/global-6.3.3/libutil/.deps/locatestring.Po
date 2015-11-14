@@ -1,0 +1,23 @@
+locatestring.o locatestring.o: locatestring.c ../config.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/ctype.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/_mingw.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/include/stddef.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/string.h \
+  die.h c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/include/stdarg.h \
+  locatestring.h
+
+../config.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/ctype.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/_mingw.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/include/stddef.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/string.h:
+
+die.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/include/stdarg.h:
+
+locatestring.h:

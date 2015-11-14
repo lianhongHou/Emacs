@@ -1,0 +1,117 @@
+parser.o parser.o: parser.c ../config.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/stdio.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/_mingw.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/include/stddef.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/include/stdarg.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/sys/types.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/stdlib.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/string.h \
+  ../libltdl/ltdl.h ../libltdl/libltdl/lt_system.h \
+  ../libltdl/libltdl/lt_error.h ../libltdl/libltdl/lt_dlloader.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/windows.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/windef.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/winnt.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/winerror.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/basetsd.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/pshpack4.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/poppack.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/wincon.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/winbase.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/wingdi.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/winuser.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/winnls.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/winver.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/winnetwk.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/winreg.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/winsvc.h \
+  parser.h internal.h ../libutil/strbuf.h ../libutil/token.h \
+  ../libutil/gparam.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/sys/param.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/limits.h \
+  ../libutil/strbuf.h ../libutil/checkalloc.h ../libutil/die.h \
+  ../libutil/langmap.h ../libutil/locatestring.h ../libdb/queue.h \
+  ../libutil/test.h
+
+../config.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/stdio.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/_mingw.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/include/stddef.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/include/stdarg.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/sys/types.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/stdlib.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/string.h:
+
+../libltdl/ltdl.h:
+
+../libltdl/libltdl/lt_system.h:
+
+../libltdl/libltdl/lt_error.h:
+
+../libltdl/libltdl/lt_dlloader.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/windows.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/windef.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/winnt.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/winerror.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/basetsd.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/pshpack4.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/poppack.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/wincon.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/winbase.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/wingdi.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/winuser.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/winnls.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/winver.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/winnetwk.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/winreg.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/winsvc.h:
+
+parser.h:
+
+internal.h:
+
+../libutil/strbuf.h:
+
+../libutil/token.h:
+
+../libutil/gparam.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/sys/param.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/limits.h:
+
+../libutil/strbuf.h:
+
+../libutil/checkalloc.h:
+
+../libutil/die.h:
+
+../libutil/langmap.h:
+
+../libutil/locatestring.h:
+
+../libdb/queue.h:
+
+../libutil/test.h:

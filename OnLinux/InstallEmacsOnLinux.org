@@ -1,0 +1,32 @@
+##+HTML_HEAD: <link href="http://thomasf.github.io/solarized-css/solarized-dark.css" rel="stylesheet" type="text/css">
+#+HTML_HEAD: <link href="http://norang.ca/norang.css" rel="stylesheet" type="text/css">
+#+HTML_HEAD: <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+#+HTML_HEAD: <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
+#+OPTIONS: email:t
+#+LINK_HOME: ../public_html/sitemap.html
+#+TITLE: Emacs 24.4
+#+AUTHOR: Howard Hou
+#+EMAIL: howard.hou@ericsson.com
+
+* Install Emacs24.4
+- Download source code of [[http://gnu.mirror.iweb.com/emacs/emacs-24.4.tar.gz][Emacs24.4]] on Linux Server.
+- Unzip it into =~/emacs24.4=, then enter directory =~/emacs24.4=.
+- Install Emacs24.4 in your home directory.
+#+begin_src sh
+    ./configure -prefix=/home/yourID/  # make it to be installed in ~/bin
+    make & make install
+    emacs-24.4 & # open Emacs-24.4 on background
+#+end_src
+  
+* Install gtags
+In order to navigate source code with ggtags, gtags(=GNU Global=) should be installed.
+
+- Download source code of [[http://tamacom.com/global/global-6.3.4.tar.gz][global-6.3.4.tar.gz]] on Linux Server.
+- Unzip it into =~/global-6.3.4=, then enter directory =~/global-6.3.4=. 
+- Install global-6.3.4
+#+begin_src sh
+    ./configure -prefix=/home/<yourID>/  # cofigure it to be installed in ~/bin
+    make & make install
+    gtags --version # check installation
+#+end_src
+

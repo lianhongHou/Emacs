@@ -1,0 +1,89 @@
+dbop.o dbop.o: dbop.c ../config.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/sys/types.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/_mingw.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/include/stddef.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/sys/stat.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/assert.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/ctype.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/fcntl.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/io.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/stdlib.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/string.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/unistd.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/process.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/stdint.h \
+  ../libglibc/getopt.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/errno.h \
+  char.h checkalloc.h dbop.h gparam.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/sys/param.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/limits.h \
+  ../libdb/db.h ../libdb/compat.h ../libglibc/regex.h strbuf.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/stdio.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/include/stdarg.h die.h env.h \
+  locatestring.h strlimcpy.h test.h
+
+../config.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/sys/types.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/_mingw.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/include/stddef.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/sys/stat.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/assert.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/ctype.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/fcntl.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/io.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/stdlib.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/string.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/unistd.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/process.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/stdint.h:
+
+../libglibc/getopt.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/errno.h:
+
+char.h:
+
+checkalloc.h:
+
+dbop.h:
+
+gparam.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/sys/param.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/limits.h:
+
+../libdb/db.h:
+
+../libdb/compat.h:
+
+../libglibc/regex.h:
+
+strbuf.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/stdio.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/include/stdarg.h:
+
+die.h:
+
+env.h:
+
+locatestring.h:
+
+strlimcpy.h:
+
+test.h:

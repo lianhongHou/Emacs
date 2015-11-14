@@ -1,0 +1,132 @@
+conf.o conf.o: conf.c ../config.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/assert.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/_mingw.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/ctype.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/include/stddef.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/stdlib.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/string.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/windows.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/include/stdarg.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/windef.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/winnt.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/winerror.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/basetsd.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/pshpack4.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/poppack.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/wincon.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/winbase.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/wingdi.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/winuser.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/winnls.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/winver.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/winnetwk.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/winreg.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/winsvc.h \
+  gparam.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/sys/param.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/sys/types.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/limits.h \
+  char.h checkalloc.h conf.h strbuf.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/stdio.h die.h \
+  env.h langmap.h locatestring.h makepath.h path.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/unistd.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/io.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/process.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/stdint.h \
+  ../libglibc/getopt.h strlimcpy.h strmake.h test.h usable.h
+
+../config.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/assert.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/_mingw.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/ctype.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/include/stddef.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/stdlib.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/string.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/windows.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/include/stdarg.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/windef.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/winnt.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/winerror.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/basetsd.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/pshpack4.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/poppack.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/wincon.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/winbase.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/wingdi.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/winuser.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/winnls.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/winver.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/winnetwk.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/winreg.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/winsvc.h:
+
+gparam.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/sys/param.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/sys/types.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/limits.h:
+
+char.h:
+
+checkalloc.h:
+
+conf.h:
+
+strbuf.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/stdio.h:
+
+die.h:
+
+env.h:
+
+langmap.h:
+
+locatestring.h:
+
+makepath.h:
+
+path.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/unistd.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/io.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/process.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/stdint.h:
+
+../libglibc/getopt.h:
+
+strlimcpy.h:
+
+strmake.h:
+
+test.h:
+
+usable.h:

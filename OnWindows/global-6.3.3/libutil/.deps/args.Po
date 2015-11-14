@@ -1,0 +1,76 @@
+args.o args.o: args.c ../config.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/ctype.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/_mingw.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/include/stddef.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/stdio.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/include/stdarg.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/sys/types.h \
+  checkalloc.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/stdlib.h \
+  die.h env.h locatestring.h strbuf.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/string.h \
+  test.h gpathop.h gparam.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/sys/param.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/limits.h \
+  dbop.h ../libdb/db.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/unistd.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/io.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/process.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/stdint.h \
+  ../libglibc/getopt.h ../libdb/compat.h ../libglibc/regex.h
+
+../config.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/ctype.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/_mingw.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/include/stddef.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/stdio.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/include/stdarg.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/sys/types.h:
+
+checkalloc.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/stdlib.h:
+
+die.h:
+
+env.h:
+
+locatestring.h:
+
+strbuf.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/string.h:
+
+test.h:
+
+gpathop.h:
+
+gparam.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/sys/param.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/limits.h:
+
+dbop.h:
+
+../libdb/db.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/unistd.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/io.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/process.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/stdint.h:
+
+../libglibc/getopt.h:
+
+../libdb/compat.h:
+
+../libglibc/regex.h:

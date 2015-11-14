@@ -1,0 +1,107 @@
+convert.o convert.o: convert.c ../config.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/stdio.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/_mingw.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/include/stddef.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/include/stdarg.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/sys/types.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/ctype.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/stdlib.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/string.h \
+  ../libutil/abs2rel.h ../libutil/char.h ../libutil/checkalloc.h \
+  ../libutil/die.h ../libutil/encodepath.h ../libutil/format.h \
+  ../libutil/gparam.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/sys/param.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/limits.h \
+  ../libutil/gpathop.h ../libutil/gparam.h ../libutil/dbop.h \
+  ../libdb/db.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/unistd.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/io.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/process.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/stdint.h \
+  ../libglibc/getopt.h ../libdb/compat.h ../libglibc/regex.h \
+  ../libutil/strbuf.h ../libutil/gtagsop.h ../libutil/idset.h \
+  ../libutil/strhash.h ../libutil/pool.h ../libglibc/obstack.h \
+  ../libdb/queue.h ../libutil/varray.h ../libutil/rewrite.h \
+  ../libutil/strbuf.h ../libutil/strlimcpy.h convert.h
+
+../config.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/stdio.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/_mingw.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/include/stddef.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/include/stdarg.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/sys/types.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/ctype.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/stdlib.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/string.h:
+
+../libutil/abs2rel.h:
+
+../libutil/char.h:
+
+../libutil/checkalloc.h:
+
+../libutil/die.h:
+
+../libutil/encodepath.h:
+
+../libutil/format.h:
+
+../libutil/gparam.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/sys/param.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/limits.h:
+
+../libutil/gpathop.h:
+
+../libutil/gparam.h:
+
+../libutil/dbop.h:
+
+../libdb/db.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/unistd.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/io.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/process.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/stdint.h:
+
+../libglibc/getopt.h:
+
+../libdb/compat.h:
+
+../libglibc/regex.h:
+
+../libutil/strbuf.h:
+
+../libutil/gtagsop.h:
+
+../libutil/idset.h:
+
+../libutil/strhash.h:
+
+../libutil/pool.h:
+
+../libglibc/obstack.h:
+
+../libdb/queue.h:
+
+../libutil/varray.h:
+
+../libutil/rewrite.h:
+
+../libutil/strbuf.h:
+
+../libutil/strlimcpy.h:
+
+convert.h:

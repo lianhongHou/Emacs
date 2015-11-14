@@ -1,0 +1,38 @@
+libltdlc_la-slist.lo libltdlc_la-slist.o: slist.c \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/assert.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/_mingw.h \
+  libltdl/slist.h ./libltdl/lt__glibc.h ../config.h ./argz.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/stdlib.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/include/stddef.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/errno.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/sys/types.h \
+  libltdl/lt__glibc.h libltdl/lt_system.h libltdl/slist.h \
+  ./libltdl/lt_system.h
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/assert.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/_mingw.h:
+
+libltdl/slist.h:
+
+./libltdl/lt__glibc.h:
+
+../config.h:
+
+./argz.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/stdlib.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/include/stddef.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/errno.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/sys/types.h:
+
+libltdl/lt__glibc.h:
+
+libltdl/lt_system.h:
+
+libltdl/slist.h:
+
+./libltdl/lt_system.h:

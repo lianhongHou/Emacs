@@ -1,0 +1,10 @@
+strlimcpy.o strlimcpy.o: strlimcpy.c ../config.h die.h \
+  c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/include/stdarg.h strlimcpy.h
+
+../config.h:
+
+die.h:
+
+c:/MinGW/bin/../lib/gcc/mingw32/3.4.5/include/stdarg.h:
+
+strlimcpy.h:
