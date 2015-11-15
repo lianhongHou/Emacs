@@ -258,21 +258,26 @@
   )
 (add-hook 'org-mode-hook 'my-org-mode)
 
-; org publish
+; org publish)
 (setq org-publish-project-alist
       '(
 	("org-notes"
-	 :base-directory "~/github/blog/org_file/"
+	 :base-directory "~/github/Notes/"
 	 :base-extension "org"
-	 :publishing-directory "~/github/blog/public_html/"
+	 :publishing-directory "~/github/Blog/"
 	 ;:publishing-directory "/ssh:user@server" ;export to server
 	 :recursive t
-	 :publishing-function my/org-html-publish-to-html)
+	 :publishing-function my/org-html-publish-to-html
+	 :headline-levels 4
+	 :auto-sitemap t                
+	 :sitemap-filename "index.org"  
+	 :sitemap-title "Sitemap"
+	 :html-head "<link rel=\"stylesheet\" type=\"text/css\" href=\"http://lianhonghou.github.io/css/norang.css\"/>")
 
 	("org-static"                ;Used to publish static files
-	 :base-directory "~/github/blog/org_file"
+	 :base-directory "~/github/Notes/"
 	 :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf"
-	 :publishing-directory "~/github/blog/public_html/"
+	 :publishing-directory "~/github/Blog/"
 	 :recursive t
 	 :publishing-function org-publish-attachment)
 	("org" :components ("org-notes" "org-static"))))
@@ -285,9 +290,11 @@
   (interactive)
   (save-buffer)
   (let ((org-confirm-babel-evaluate nil)
-	(default-directory (concat default-directory "../temp"))
+	(default-directory (concat default-directory "../temp_html"))
 	(browse-url-chromium-program "C:/Program Files (x86)/Google/Chrome/Application/chrome.exe")
-	(browse-url-browser-function #'browse-url-chromium))
+	(browse-url-browser-function #'browse-url-chromium)
+	(org-html-head (concat "<link rel=\"stylesheet\" type=\"text/css\" href=\"" (expand-file-name "~") "/github/Blog/css/norang.css\"/>")))
+    ;(when (member "image" (directory-files ".")) (copy-directory "./image" default-directory)) it does not work, need debug it in future
     (org-html-export-to-html)
     (browse-url (org-export-output-file-name ".html" nil default-directory))))
 
