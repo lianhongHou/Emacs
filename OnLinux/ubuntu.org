@@ -1,0 +1,101 @@
+* 远程桌面x2go
+- 安装add-apt-repository
+  #+BEGIN_SRC sh
+  sudo apt-get install python-software-properties software-properties-common=
+  #+END_SRC
+- 添加RPA
+  #+BEGIN_SRC sh
+  sudo apt-add-repository -y ppa:x2go/stable 
+  #+END_SRC
+- 刷新包列表
+  #+BEGIN_SRC sh
+  sudo apt-get update 
+  #+END_SRC
+- 安装X2GO
+  #+BEGIN_SRC sh
+  sudo apt-get install x2goserver x2goserver-xsession 
+  #+END_SRC
+- 使用XFCE4作为桌面
+  #+BEGIN_SRC sh
+  sudo apt-get install xfce4   
+  #+END_SRC
+- 确保主机名已经设置
+  #+BEGIN_SRC sh
+  sudo cat /etc/hostname  
+  #+END_SRC
+- 重启
+  #+BEGIN_SRC sh
+  sudo reboot
+  #+END_SRC
+
+* Emacs
+删除原有的emacs, =sudo apt-get autoremove emacs=.
+
+- 安装
+  - 下载
+  #+BEGIN_SRC sh
+  wget http://mirrors.ustc.edu.cn/gnu/emacs/emacs-24.5.tar.xz
+  xz -d emacs-24.5.tar.xz
+  tar -xvf emacs emacs-24.5.tar
+  rm -rf emacs-24.5.tar
+  #+END_SRC
+  - =sudo ./configure=
+    if errors happen, try below
+    #+BEGIN_SRC sh
+    sudo apt-get install libgtk2.0-dev    
+    sudo apt-get install libxpm-dev
+    sudo apt-get install libjpeg62-dev
+    sudo apt-get install libgif-dev
+    sudo apt-get install libtiff4-dev
+    sudo apt-get install libncurses-dev
+    #+END_SRC
+  - =sudo make=
+  - =sudo make install=
+* chrome
+- 下载deb包
+  #+BEGIN_SRC sh
+  wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+  #+END_SRC
+- 安装deb包
+  #+BEGIN_SRC sh
+  sudo dpkg -i google-chrome-stable_current_amd64.deb   
+  #+END_SRC
+- 安装依赖库
+if it shows some shared libraries not found when openning chrome, you can try 
+#+BEGIN_SRC sh
+apt-get install -f  
+#+END_SRC
+也许，你可能需要重新执行 =sudo dpkg -i google-chrome-stable_current_amd64.deb=, 
+不然，会出现错误 /google-chrome-stable is not ready for configuration/.
+* 中文支持
+- 中文语言包
+#+BEGIN_SRC sh
+sudo apt-get install language-pack-zh-hans
+#+END_SRC
+- sudo vi /var/lib/locales/supported.d/local 
+#+BEGIN_SRC sh
+en_US.UTF-8 UTF-8
+zh_CN.UTF-8 UTF-8
+#+END_SRC
+- sudo vi /etc/environment, 
+#+BEGIN_SRC sh
+PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
+LANG="zh_CN.UTF-8"
+LANGUAGE="zh_CN:zh:en_US:en"
+LC_CTYPE="zh_CN.UTF-8"
+#+END_SRC
+- 生成locale文件
+#+BEGIN_SRC sh
+sudo locale-gen
+#+END_SRC
+* 拼音
+#+BEGIN_SRC sh
+sudo apt-get install ibus-googlepinyin
+#+END_SRC
+* 编译32位程序
+64位的ubuntu上要编译32位的代码，需要安装
+#+BEGIN_SRC sh
+$ sudo apt-get install build-essential module-assistant  
+$ sudo apt-get install gcc-multilib g++-multilib  
+#+END_SRC
+gcc 的编译参数加上 -32
