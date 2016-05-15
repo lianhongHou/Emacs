@@ -29,28 +29,118 @@
   #+END_SRC
 
 * Emacs
+** 安装 Emacs
 删除原有的emacs, =sudo apt-get autoremove emacs=.
 
-- 安装
-  - 下载
-  #+BEGIN_SRC sh
-  wget http://mirrors.ustc.edu.cn/gnu/emacs/emacs-24.5.tar.xz
-  xz -d emacs-24.5.tar.xz
-  tar -xvf emacs emacs-24.5.tar
-  rm -rf emacs-24.5.tar
-  #+END_SRC
-  - =sudo ./configure=
-    if errors happen, try below
-    #+BEGIN_SRC sh
-    sudo apt-get install libgtk2.0-dev    
-    sudo apt-get install libxpm-dev
-    sudo apt-get install libjpeg62-dev
-    sudo apt-get install libgif-dev
-    sudo apt-get install libtiff4-dev
-    sudo apt-get install libncurses-dev
-    #+END_SRC
-  - =sudo make=
-  - =sudo make install=
+下载
+#+BEGIN_SRC sh
+wget http://mirrors.ustc.edu.cn/gnu/emacs/emacs-24.5.tar.xz
+xz -d emacs-24.5.tar.xz
+tar -xvf emacs emacs-24.5.tar
+rm -rf emacs-24.5.tar
+#+END_SRC
+
+配置 =sudo ./configure= 。 如果错误发生，尝试安装以下包
+#+BEGIN_SRC sh
+sudo apt-get install libgtk2.0-dev    
+sudo apt-get install libxpm-dev
+sudo apt-get install libjpeg62-dev
+sudo apt-get install libgif-dev
+sudo apt-get install libtiff4-dev
+sudo apt-get install libncurses-dev
+#+END_SRC
+
+安装 =sudo make= ，=sudo make install= 。
+** gtags
+In order to navigate source code with ggtags, gtags(=GNU Global=) should be installed.
+- Download source code of [[http://tamacom.com/global/global-6.3.4.tar.gz][global-6.3.4.tar.gz]] on Linux Server.
+- Unzip it into =~/global-6.3.4=, then enter directory =~/global-6.3.4=. 
+- Install global-6.3.4
+  #+begin_src sh
+  ./configure -prefix=/home/<yourID>/  # cofigure it to be installed in ~/bin
+  make & make install
+  gtags --version # check installation
+  #+end_src
+** rtags
+下载，安装
+#+BEGIN_SRC sh
+apt-get install llvm-3.6-dev libclang-3.6-dev
+git clone --recursive https://github.com/Andersbakken/rtags.git
+cd rtags
+git submodule init
+git submodule update
+mkdir build
+cd build
+cmake -DLIBCLANG_LLVM_CONFIG_EXECUTABLE=/usr/lib/llvm-3.6/bin/llvm-config ..
+make
+make install 
+#+END_SRC
+
+从 =make install= 的输出信息的最后部分
+#+BEGIN_EXAMPLE
+Install the project...
+-- Install configuration: "Release"
+Installing rtags...
+-- Installing: /usr/local/bin/rdm
+-- Installing: /usr/local/bin/rc
+-- Installing: /usr/local/bin/rp
+-- Installing: /usr/local/bin/gcc-rtags-wrapper.sh
+-- Installing: /usr/local/share/man/man7/rc.7
+-- Installing: /usr/local/share/man/man7/rdm.7
+-- Installing: /usr/local/share/emacs/site-lisp/rtags/rtags.el
+-- Installing: /usr/local/share/emacs/site-lisp/rtags/rtags.elc
+-- Installing: /usr/local/share/emacs/site-lisp/rtags/rtags-ac.el
+-- Installing: /usr/local/share/emacs/site-lisp/rtags/rtags-ac.elc
+-- Installing: /usr/local/share/emacs/site-lisp/rtags/company-rtags.el
+-- Installing: /usr/local/share/emacs/site-lisp/rtags/company-rtags.elc
+-- Installing: /usr/local/share/emacs/site-lisp/rtags/flycheck-rtags.el
+-- Installing: /usr/local/share/emacs/site-lisp/rtags/flycheck-rtags.elc
+#+END_EXAMPLE
+
+安装完毕后，就可以 =rm -rf rtags= 了。
+
+如果发生错误 "could not find curses", 尝试 =$ apt-get install libncurses5-dev=
+
+*rdm* is a server that index files and handles database queries. *rc* is the 
+client to control *rdm* (make queries, set project configuration, etc)
+
+为获取符号索引的数据库，需要拦截编译时对gcc编译器的调用，具体要求就是，
+#+BEGIN_SRC sh
+ln -s /usr/local/bin/gcc-rtags-wrapper.sh ~/bin/gcc
+ln -s /usr/local/bin/gcc-rtags-wrapper.sh ~/bin/g++
+ln -s /usr/local/bin/gcc-rtags-wrapper.sh ~/bin/cc
+ln -s /usr/local/bin/gcc-rtags-wrapper.sh ~/bin/c++
+#+END_SRC
+同时，还需要将 =export PATH=~/bin:$PATH= 加入到 ~/.zshrc 或 ~/.bashrc （这取决于你所使用的shell）。
+
+.emacs 配置
+#+BEGIN_SRC elisp
+(defun my-compile-func()
+  (interactive)
+  (save-buffer)
+  (recompile))
+
+;(set-variable rtags-rdm-includes '((expand-file-name "~/rtagsDB")))
+(commandp 'cc-hook-func)
+(defun cc-hook-func()
+  (rtags-restart-process)  ; to start rdm if rdm not started yet
+  (local-set-key (kbd "<f5>") 'my-compile-func)
+  )
+
+(add-hook 'c-mode-common-hook 'cc-hook-func)
+(require 'rtags)
+#+END_SRC
+    
+Indexing Linux source code. 
+- =make mrproper=
+- =make i386_defconfig=
+- =emacs ~/linuxSrc=
+- In c-mode
+  - server *rdm* and buffer *rdm* created automatically. 
+
+    You can find infomation in buffer *rdm*.
+  - run =my-compile-func= 
+
 * chrome
 - 下载deb包
   #+BEGIN_SRC sh
@@ -99,3 +189,67 @@ $ sudo apt-get install build-essential module-assistant
 $ sudo apt-get install gcc-multilib g++-multilib  
 #+END_SRC
 gcc 的编译参数加上 -32
+* DNS
+永久修改DNS，需要修改文件 /etc/sysconfig/network-scripts/ifcfg-eth0,
+设置DNS1为8.8.8.8， DNS2为8.8.4.4, 设置DOMAIN为localdomain
+
+* linux code
+#+BEGIN_SRC sh
+wget http://www.kernel.org/pub/linux/kernel/v2.6/linux-2.6.30.tar.bz2
+tar -xvf linux-2.6.30.tar.bz2
+cd linux-2.6.30
+make mrproper
+make i386_defconfig
+make
+#+END_SRC
+
+errors
+- arch/x86/vdso/vdso.so.dbg
+
+  在内核目录 arch/x86/vdso/Makefile中, 将VDSO_LDFLAGS_VDSO.lds= -m elf_x86_64 -WL,…..将”-m elf_x86_64” 替换为”-m64”;
+  将VDSO_LDFLAGS_vdso32.lds = -m elf_i386 -WL…..将”-m elf_i386” 替换为”-m32”。
+* kvm
+
+install KVM 
+#+BEGIN_SRC sh
+sudo apt-get install kvm
+sudo apt-get install qemu-kvm bridge-utils virt-manager libvirt-bin
+sudo apt-get install qemu-system
+sudo adduser name libvritd
+sudo virsh list 
+#+END_SRC
+
+Taking ubuntu cloud image as guest os, the default user is "ubuntu", but 
+the password is random, so we need to set password, how?
+- create a temp file my-user-data, and its content
+  
+  #+BEGIN_SRC sh
+  #cloud-config
+  password: 123456
+  chpasswd: { expire: False }
+  ssh-pwauth: True
+  #+END_SRC  
+- generate image my-seed.xml for my-user-data 
+  
+  #+BEGIN_SRC sh
+  cloud-localds my-seed.img my-user-data 
+  #+END_SRC
+  
+- add info below to domain xml that is used to create a VM
+
+  #+BEGIN_SRC xml
+  <disk type="file" device="raw">
+    <driver name="qemu" type="raw" />
+    <source file="/path/to/myseed.img" />
+    <target dev="hda" bus="ide" />
+    <alias name="ide-disk0" />
+    <address type="drive" controller="0" domain="0" bus="0" target="0" unit="1">
+  </disk>
+  #+END_SRC
+
+  BTW, you can get domain xml by =sudo virsh dumpxml <vmname>= for VM /vmname/ .
+- =sudo virsh create domain.xml=
+- "sudo virsh console domain" 
+
+  To exit virsh, /Ctrl+]/
+
