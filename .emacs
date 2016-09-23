@@ -79,27 +79,27 @@
 ; disbale menu bar
 (menu-bar-mode -1)
 ; disable scroll bar
-(scroll-bar-mode -1)
+;;(scroll-bar-mode -1)
 ; setting powerline
-(powerline-default-theme)
-(setq powerline-arrow-shape 'arrow14)
-(setq display-time-day-and-date t)
-(setq display-time-24hr-format t)
-(display-time-mode 1)
+;;(powerline-default-theme)
+;;(setq powerline-arrow-shape 'arrow14)
+;;(setq display-time-day-and-date t)
+;;(setq display-time-24hr-format t)
+;;(display-time-mode 1)
 ; load theme zenburn 
-(load-theme 'zenburn t)
+;;(load-theme 'zenburn t)
 ;set transparent effect
-(global-set-key [(f11)] 'loop-alpha)
-(defvar alpha-list '((100 100) (95 65) (85 55) (75 45) (65 35)))
-(defun loop-alpha ()
-  (interactive)
-  (let ((h (car alpha-list)))                ;; head value will set to
-    ((lambda (a ab)
-       (set-frame-parameter (selected-frame) 'alpha (list a ab))
-       (add-to-list 'default-frame-alist (cons 'alpha (list a ab)))
-       ) (car h) (car (cdr h)))
-    (setq alpha-list (cdr (append alpha-list (list h))))
-    ))
+;; (global-set-key [(f11)] 'loop-alpha)
+;; (defvar alpha-list '((100 100) (95 65) (85 55) (75 45) (65 35)))
+;; (defun loop-alpha ()
+;;   (interactive)
+;;   (let ((h (car alpha-list)))                ;; head value will set to
+;;     ((lambda (a ab)
+;;        (set-frame-parameter (selected-frame) 'alpha (list a ab))
+;;        (add-to-list 'default-frame-alist (cons 'alpha (list a ab)))
+;;        ) (car h) (car (cdr h)))
+;;     (setq alpha-list (cdr (append alpha-list (list h))))
+;;     ))
 
 ;;; buffer management ;;;;
 ; setting for uniquify 
@@ -119,17 +119,19 @@
 (setq magit-completing-read-function 'magit-ido-completing-read)
 
 ;;; file management ;;;;;;;;
-; open a file with default app					;
-(defun open-externally (file-name)
-  (interactive "fOpen externally: ")
-  (let ((process-connection-type nil))
-     (start-process "open-externally" nil
-                    "xdg-open" file-name)))
-
-(when (eq window-system 'w32)
-  (defun open-externally (file-name)
-    (interactive "fOpen externally: ")
-    (w32-shell-execute "open" file-name)))
+(defun my-open-externally (file-name)
+  (interactive "open externally")
+  (cond
+   ((string-equal system-type "gnu/linux")
+    (let ((process-connection-type nil))
+     (start-process "open-externally" nil "xdg-open" file-name)))
+    
+   ((string-equal system-type "windows-nt")
+    (w32-shell-execute "open" file-name))
+   
+   ((string-equal system-type "cygwin")
+    (shell-command (concat "cygstart " file-name)))
+   ))
 
 ; dired
 (add-hook 'dired-load-hook
@@ -145,7 +147,7 @@
             ;; (dired-omit-mode 1)
 	    (defun dired-open-externally ()
 	      (interactive)
-	      (open-externally (dired-get-filename)))
+	      (my-open-externally (dired-get-filename)))
 	    (local-set-key (kbd "M-RET") 'dired-open-externally)
             ))
 (global-set-key (kbd "C-x C-d") 'dired)
