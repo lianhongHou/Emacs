@@ -46,8 +46,8 @@
 			 htmlize
 			 ))
 
-(setq backup-directory-alist '(("." . "~/github/Emacs/.emacs.d/backups")))
-(setq package-user-dir "~/github/Emacs/.emacs.d/elpa")
+(setq backup-directory-alist '(("." . "~/.emacs.d/backups")))
+(setq package-user-dir "~/.emacs.d/elpa")
 
 (package-initialize)
 (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
@@ -65,7 +65,7 @@
 ; to disable automatic package loading after init.el
 (setq package-enable-at-startup nil) 
 
-(add-to-list 'load-path "~/github/Emacs/.emacs.d/elpa")
+(add-to-list 'load-path "~/.emacs.d/elpa")
 (require 'cl)
 ;;;;;; configuration ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (setq default-directory "~/")
