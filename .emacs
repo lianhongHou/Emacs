@@ -190,15 +190,23 @@
 	     ;;   (ggtags-mode 1))
 
 	     ; rtags
+	     (add-to-list 'load-path "/usr/local/share/emacs/site-lisp/rtags")
+	     (require 'rtags)  ;; optional
+	     (rtags-restart-process) ;; to start rdm, or you can rtags-start-process-unless-running in emacs
 	     (defun my-compile-func()
 	       (interactive)
 	       (save-buffer)
 	       (compilation-mode)
 	       (recompile))
-	     (require 'rtags)  ;; optional
-	     (rtags-restart-process) ;; to start rdm, or you can rtags-start-process-unless-running in emacs
 	     (local-set-key (kbd "<f5>") 'my-compile-func)
-	     
+             (local-set-key (kbd "M-.") 'rtags-find-symbol-at-point)	     
+             (local-set-key (kbd "M-,") 'rtags-find-references-at-point)
+             (local-set-key (kbd "M-n") 'rtags-next-match)
+             (local-set-key (kbd "M-p") 'rtags-previous-match)
+             (local-set-key (kbd "M-f") 'rtags-find-file)
+             (local-set-key (kbd "M-]") 'rtags-location-stack-forward)
+             (local-set-key (kbd "M-[") 'rtags-location-stack-backward)
+
 	     ; company-irony
 	     (when (derived-mode-p 'c-mode 'c++-mode)
 	       (setq company-backends '((company-irony company-gtags)))
