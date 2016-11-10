@@ -46,8 +46,8 @@
 			 htmlize
 			 ))
 
-(setq backup-directory-alist '(("." . "~/github/Emacs/.emacs.d/backups")))
-(setq package-user-dir "~/github/Emacs/.emacs.d/elpa")
+(setq backup-directory-alist '(("." . "~/.emacs.d/backups")))
+(setq package-user-dir "~/.emacs.d/elpa")
 
 (package-initialize)
 (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
@@ -65,7 +65,7 @@
 ; to disable automatic package loading after init.el
 (setq package-enable-at-startup nil) 
 
-(add-to-list 'load-path "~/github/Emacs/.emacs.d/elpa")
+(add-to-list 'load-path "~/.emacs.d/elpa")
 (require 'cl)
 ;;;;;; configuration ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (setq default-directory "~/")
@@ -88,18 +88,6 @@
 ;;(display-time-mode 1)
 ; load theme zenburn 
 ;;(load-theme 'zenburn t)
-;set transparent effect
-;; (global-set-key [(f11)] 'loop-alpha)
-;; (defvar alpha-list '((100 100) (95 65) (85 55) (75 45) (65 35)))
-;; (defun loop-alpha ()
-;;   (interactive)
-;;   (let ((h (car alpha-list)))                ;; head value will set to
-;;     ((lambda (a ab)
-;;        (set-frame-parameter (selected-frame) 'alpha (list a ab))
-;;        (add-to-list 'default-frame-alist (cons 'alpha (list a ab)))
-;;        ) (car h) (car (cdr h)))
-;;     (setq alpha-list (cdr (append alpha-list (list h))))
-;;     ))
 
 ;;; buffer management ;;;;
 ; setting for uniquify 
@@ -195,10 +183,23 @@
 		   indent-tabs-mode nil)
 
 	     (hs-minor-mode t) ; hide and show block with builtin feature Hideshow
- 
-	     (when (derived-mode-p 'c-mode 'c++-mode 'java-mode 'asm-mode)
-	       (ggtags-mode 1))
+	     (read-only-mode 1)
 
+	     ; gtags
+	     ;; (when (derived-mode-p 'c-mode 'c++-mode 'java-mode 'asm-mode)
+	     ;;   (ggtags-mode 1))
+
+	     ; rtags
+	     (defun my-compile-func()
+	       (interactive)
+	       (save-buffer)
+	       (compilation-mode)
+	       (recompile))
+	     (require 'rtags)  ;; optional
+	     (rtags-restart-process) ;; to start rdm, or you can rtags-start-process-unless-running in emacs
+	     (local-set-key (kbd "<f5>") 'my-compile-func)
+	     
+	     ; company-irony
 	     (when (derived-mode-p 'c-mode 'c++-mode)
 	       (setq company-backends '((company-irony company-gtags)))
 	       (defun my-irony-mode-hook ()
@@ -216,6 +217,7 @@
 	       ;; useful for c++, help you expand the function headers defined in .h file to a .cpp file.
 	       (require 'member-functions)
 	       (setq mf--source-file-extension "cpp"))
+	     
 	     )
 (add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
 

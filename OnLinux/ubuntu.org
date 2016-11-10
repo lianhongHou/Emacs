@@ -72,6 +72,8 @@ git submodule update
 mkdir build
 cd build
 cmake -DLIBCLANG_LLVM_CONFIG_EXECUTABLE=/usr/lib/llvm-3.6/bin/llvm-config ..
+apt-get install zlibc zlib1g zlib1g-dev  // if no zlib found   
+apt-get install pkg-config   // if no pkgconfig found
 make
 make install 
 #+END_SRC
@@ -120,7 +122,6 @@ ln -s /usr/local/bin/gcc-rtags-wrapper.sh ~/bin/c++
   (save-buffer)
   (recompile))
 
-;(set-variable rtags-rdm-includes '((expand-file-name "~/rtagsDB")))
 (commandp 'cc-hook-func)
 (defun cc-hook-func()
   (rtags-restart-process)  ; to start rdm if rdm not started yet
@@ -128,19 +129,10 @@ ln -s /usr/local/bin/gcc-rtags-wrapper.sh ~/bin/c++
   )
 
 (add-hook 'c-mode-common-hook 'cc-hook-func)
+(load-to-list 'load-path "/usr/local/share/emacs/site-lisp/rtags")
 (require 'rtags)
 #+END_SRC
-    
-Indexing Linux source code. 
-- =make mrproper=
-- =make i386_defconfig=
-- =emacs ~/linuxSrc=
-- In c-mode
-  - server *rdm* and buffer *rdm* created automatically. 
-
-    You can find infomation in buffer *rdm*.
-  - run =my-compile-func= 
-
+ 
 * chrome
 - 下载deb包
   #+BEGIN_SRC sh
@@ -194,14 +186,18 @@ gcc 的编译参数加上 -32
 设置DNS1为8.8.8.8， DNS2为8.8.4.4, 设置DOMAIN为localdomain
 
 * linux code
-#+BEGIN_SRC sh
-wget http://www.kernel.org/pub/linux/kernel/v2.6/linux-2.6.30.tar.bz2
-tar -xvf linux-2.6.30.tar.bz2
-cd linux-2.6.30
-make mrproper
-make i386_defconfig
-make
-#+END_SRC
+- step1, download and configure the kernel
+  #+BEGIN_SRC sh
+  wget http://www.kernel.org/pub/linux/kernel/v4.x/linux-4.7.10.tar.gz 
+  tar -xzf linux-4.7.10.tar.gz
+  cd linux-4.7.10
+  make mrproper
+  make x86_64_defconfig
+  #+END_SRC
+- step2, compile kernel in emacs
+  =emacs linux-4.7.10=, set to C-mode, make sure buffer rdm existing, 
+  then M-x recompile. M-x recompile again if it fails. At last, 
+  run =make mrproper= in shell.
 
 errors
 - arch/x86/vdso/vdso.so.dbg
