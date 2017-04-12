@@ -67,6 +67,9 @@
 
 (add-to-list 'load-path "~/.emacs.d/elpa")
 (require 'cl)
+; download from https://code.google.com/archive/p/unicad/downloads
+(require 'unicad) ; to decide the coding system automatically
+
 ;;;;;; configuration ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (setq default-directory "~/")
 ; 'y' for 'yes', 'n' for 'no'
