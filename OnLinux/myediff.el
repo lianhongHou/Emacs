@@ -1,0 +1,10 @@
+(defun my-ediff ()
+  (interactive)
+  (setq ediff-split-window-function 'split-window-horizontally)
+;   (setq ediff-window-setup-function 'ediff-setup-windows-plain)
+  (add-hook 'ediff-cleanup-hook (lambda () (ediff-janitor nil nil)))
+;  (setq file (concat "/vobs/bts_sw/rba_fw/rba_fwu/"
+;		     (substring (buffer-substring-no-properties (line-beginning-position) (line-end-position)) 1)))
+   (setq file (buffer-substring-no-properties (line-beginning-position) (line-end-position)))
+  (ediff-files (concat file "/0")
+	       (concat file "/LATEST")))

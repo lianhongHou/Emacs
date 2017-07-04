@@ -189,8 +189,8 @@
 	     (read-only-mode 1)
 
 	     ; gtags
-	     ;; (when (derived-mode-p 'c-mode 'c++-mode 'java-mode 'asm-mode)
-	     ;;   (ggtags-mode 1))
+	     (when (derived-mode-p 'c-mode 'c++-mode 'java-mode 'asm-mode)
+	        (ggtags-mode 1))
 
 	     ; rtags
 	     (add-to-list 'load-path "/usr/local/share/emacs/site-lisp/rtags")
