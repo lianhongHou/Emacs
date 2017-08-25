@@ -15,9 +15,9 @@
 			 ; to invoke functions of common lisp
 			 cl
 			 ; a theme for emacs
-			 zenburn-theme
+			 ;zenburn-theme
 			 ; to customize the mode line
-			 powerline
+			 ;powerline
 			 ; making buffer name unique, useful when opening multiple files with the same name
 			 ;uniquify comes with Emacs
 			 ; highlight current line
@@ -37,6 +37,10 @@
 			 wgrep
 			 ;a minor mode that allows Multiple Major Modes to coexist in one buffer
 			 mmm-mode
+			 ; go
+			 go-dlv ;; for delve debug
+			 go-mode
+			 go-autocomplete
 			; syntax checking, Supports over 30 programming and markup languages, but not java
 			 flycheck
 			 yasnippet
@@ -68,7 +72,7 @@
 (add-to-list 'load-path "~/.emacs.d/elpa")
 (require 'cl)
 ; download from https://code.google.com/archive/p/unicad/downloads
-(require 'unicad) ; to decide the coding system automatically
+;(require 'unicad) ; to decide the coding system automatically
 
 ;;;;;; configuration ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (setq default-directory "~/")
@@ -91,6 +95,8 @@
 ;;(display-time-mode 1)
 ; load theme zenburn 
 ;;(load-theme 'zenburn t)
+
+(global-undo-tree-mode)
 
 ;;; buffer management ;;;;
 ; setting for uniquify 
@@ -163,10 +169,27 @@
 ;;; Version Control ;;;
 (global-set-key (kbd "C-x g") 'magit-status)
 
-
 (add-hook 'after-init-hook #'global-company-mode)
 ;(add-hook 'after-init-hook #'global-flycheck-mode)
 
+(defun my-go-mode-hook ()
+  (local-set-key (kbd "M-[") 'pop-tag-mark)
+
+  ;(read-only-mode t)
+
+  ; format the code and add imports automatically, depends on goimports
+  (setq gofmt-command "goimports")
+  (add-hook 'before-save-hook 'gofmt-before-save)
+
+  ; depends on guru and go-guru.el 
+  (require 'go-guru)
+  (go-guru-hl-identifier-mode)
+  
+  ; on debug
+  (require 'go-autocomplete)
+  (auto-complete-mode 1)
+  )
+(add-hook 'go-mode-hook 'my-go-mode-hook)
 ; c, c++, and java mode
 ;; add .sig file as c source code
 (setq auto-mode-alist (append '(("\\.sig$" . c-mode)) auto-mode-alist))
