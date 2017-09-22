@@ -10,45 +10,46 @@
 (setq message-log-max t) ;;; keep message buffer complete.
 
 (defvar my-packages '(
-			 ; a library in which all functions and constructs are prefixed with dash(-)
-			 dash
-			 ; to invoke functions of common lisp
-			 cl
-			 ; a theme for emacs
-			 ;zenburn-theme
-			 ; to customize the mode line
-			 ;powerline
-			 ; making buffer name unique, useful when opening multiple files with the same name
-			 ;uniquify comes with Emacs
-			 ; highlight current line
-			 ido
-			 ido-ubiquitous
-			 ; dired-x comes with Emacs
-			 smex
-			 smartparens
+             ; a library in which all functions and constructs are prefixed with dash(-)
+             dash
+             ; to invoke functions of common lisp
+             cl
+             ; a theme for emacs
+             ;zenburn-theme
+             ; to customize the mode line
+             ;powerline
+             ; making buffer name unique, useful when opening multiple files with the same name
+             ;uniquify comes with Emacs
+             ; highlight current line
+             ido
+             ido-ubiquitous
+             ; dired-x comes with Emacs
+             smex
+             smartparens
 
-			 magit
-			 ; similar toace-jump-mode
-			 avy
-			 company
-			 company-irony
-			 multiple-cursors
-			 ; makes the grep, and ag buffers writable so you can make changes to your search results.
-			 wgrep
-			 ;a minor mode that allows Multiple Major Modes to coexist in one buffer
-			 mmm-mode
-			 ; go
-			 go-dlv ;; for delve debug
-			 go-mode
-			 go-autocomplete
-			; syntax checking, Supports over 30 programming and markup languages, but not java
-			 flycheck
-			 yasnippet
-			 ; support c, c++, java
-			 ggtags
-			 ; exporting to HTML while respecting display properties such as colors, fonts, etc. used when org publish, no need configure it.
-			 htmlize
-			 ))
+             magit
+             ; similar toace-jump-mode
+             avy
+             company
+             company-irony
+             multiple-cursors
+             ; makes the grep, and ag buffers writable so you can make changes to your search results.
+             wgrep
+             ;a minor mode that allows Multiple Major Modes to coexist in one buffer
+             mmm-mode
+             ; go
+             go-dlv ;; for delve debug
+             go-mode
+             go-autocomplete
+             golint
+            ; syntax checking, Supports over 30 programming and markup languages, but not java
+             flycheck
+             yasnippet
+             ; support c, c++, java
+             ggtags
+             ; exporting to HTML while respecting display properties such as colors, fonts, etc. used when org publish, no need configure it.
+             htmlize
+             ))
 
 (setq backup-directory-alist '(("." . "~/.emacs.d/backups")))
 (setq package-user-dir "~/.emacs.d/elpa")
@@ -62,8 +63,8 @@
     (package-refresh-contents))
 
 (mapc (lambda (pkg)
-	(or (package-installed-p pkg))
-	(package-install pkg))
+    (or (package-installed-p pkg))
+    (package-install pkg))
       my-packages)
 
 ; to disable automatic package loading after init.el
@@ -128,6 +129,9 @@
    
    ((string-equal system-type "cygwin")
     (shell-command (concat "cygstart " file-name)))
+
+   ((string-equal system-type "darwin")
+    (shell-command (concat "open " (shell-quote-argument file-name))))
    ))
 
 ; dired
@@ -142,10 +146,10 @@
           (lambda ()
             ;; Set dired-x buffer-local variables here.  For example:
             ;; (dired-omit-mode 1)
-	    (defun dired-open-externally ()
-	      (interactive)
-	      (my-open-externally (dired-get-filename)))
-	    (local-set-key (kbd "M-RET") 'dired-open-externally)
+        (defun dired-open-externally ()
+          (interactive)
+          (my-open-externally (dired-get-filename)))
+        (local-set-key (kbd "M-RET") 'dired-open-externally)
             ))
 (global-set-key (kbd "C-x C-d") 'dired)
 
@@ -175,16 +179,21 @@
 (defun my-go-mode-hook ()
   (local-set-key (kbd "M-[") 'pop-tag-mark)
 
-  ;(read-only-mode t)
+  (read-only-mode t)
+  (hs-minor-mode t)
 
-  ; format the code and add imports automatically, depends on goimports
-  (setq gofmt-command "goimports")
-  (add-hook 'before-save-hook 'gofmt-before-save)
-
-  ; depends on guru and go-guru.el 
+   ; depends on guru and go-guru.el 
   (require 'go-guru)
   (go-guru-hl-identifier-mode)
-  
+ 
+  ; format the code and add imports automatically, depends on goimports
+  (setq gofmt-command "goimports")
+  (add-hook 'before-save-hook
+			(lambda ()
+			  (gofmt-before-save)
+			  (golint))) ; 'gofmt-before-save)
+  (seq tab-width 4 indent-tabs-mode nil)
+ 
   ; on debug
   (require 'go-autocomplete)
   (auto-complete-mode 1)
@@ -195,37 +204,37 @@
 (setq auto-mode-alist (append '(("\\.sig$" . c-mode)) auto-mode-alist))
 ;; cc-mode is builtin, it has effect on c, c++, java, etc.
 (defun my-c-mode-common-hook ()
-	     (which-function-mode t)  ; show function name in mode line
+         (which-function-mode t)  ; show function name in mode line
 
-	     (setq c-default-style
-	     	   '((java-mode . "java")
-	     	     (awk-mode . "awk")
-	     	     (c-mode . "linux")
-	     	     (c++-mode . "stroustrup")
-	     	     (other . "linux")))
-	     (setq c-basic-offset 2)
-	     (setq tab-width 2
-		   ;; this will make sure spaces are used instead of tabs
-		   indent-tabs-mode nil)
+         (setq c-default-style
+                '((java-mode . "java")
+                  (awk-mode . "awk")
+                  (c-mode . "linux")
+                  (c++-mode . "stroustrup")
+                  (other . "linux")))
+         (setq c-basic-offset 2)
+         (setq tab-width 2
+           ;; this will make sure spaces are used instead of tabs
+           indent-tabs-mode nil)
 
-	     (hs-minor-mode t) ; hide and show block with builtin feature Hideshow
-	     (read-only-mode 1)
+         (hs-minor-mode t) ; hide and show block with builtin feature Hideshow
+         (read-only-mode 1)
 
-	     ; gtags
-	     (when (derived-mode-p 'c-mode 'c++-mode 'java-mode 'asm-mode)
-	        (ggtags-mode 1))
+         ; gtags
+         (when (derived-mode-p 'c-mode 'c++-mode 'java-mode 'asm-mode)
+            (ggtags-mode 1))
 
-	     ; rtags
-	     (add-to-list 'load-path "/usr/local/share/emacs/site-lisp/rtags")
-	     (require 'rtags)  ;; optional
-	     (rtags-restart-process) ;; to start rdm, or you can rtags-start-process-unless-running in emacs
-	     (defun my-compile-func()
-	       (interactive)
-	       (save-buffer)
-	       (compilation-mode)
-	       (recompile))
-	     (local-set-key (kbd "<f5>") 'my-compile-func)
-             (local-set-key (kbd "M-.") 'rtags-find-symbol-at-point)	     
+         ; rtags
+         (add-to-list 'load-path "/usr/local/share/emacs/site-lisp/rtags")
+         (require 'rtags)  ;; optional
+         (rtags-restart-process) ;; to start rdm, or you can rtags-start-process-unless-running in emacs
+         (defun my-compile-func()
+           (interactive)
+           (save-buffer)
+           (compilation-mode)
+           (recompile))
+         (local-set-key (kbd "<f5>") 'my-compile-func)
+             (local-set-key (kbd "M-.") 'rtags-find-symbol-at-point)         
              (local-set-key (kbd "M-,") 'rtags-find-references-at-point)
              (local-set-key (kbd "M-n") 'rtags-next-match)
              (local-set-key (kbd "M-p") 'rtags-previous-match)
@@ -233,26 +242,26 @@
              (local-set-key (kbd "M-]") 'rtags-location-stack-forward)
              (local-set-key (kbd "M-[") 'rtags-location-stack-backward)
 
-	     ; company-irony
-	     (when (derived-mode-p 'c-mode 'c++-mode)
-	       (setq company-backends '((company-irony company-gtags)))
-	       (defun my-irony-mode-hook ()
-		 (define-key irony-mode-map [remap completion-at-point]
-		   'irony-completion-at-point-async)
-		 (define-key irony-mode-map [remap complete-symbol]
-		   'irony-completion-at-point-async))
-	       (add-hook 'irony-mode-hook 'my-irony-mode-hook)
-	       (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
-	       (when (eq system-type 'windows-nt)
-		 (setq w32-pipe-read-delay 0))
-	       (irony-mode 1))
-	       
-	     (when (derived-mode-p 'c++-mode)
-	       ;; useful for c++, help you expand the function headers defined in .h file to a .cpp file.
-	       (require 'member-functions)
-	       (setq mf--source-file-extension "cpp"))
-	     
-	     )
+         ; company-irony
+         (when (derived-mode-p 'c-mode 'c++-mode)
+           (setq company-backends '((company-irony company-gtags)))
+           (defun my-irony-mode-hook ()
+         (define-key irony-mode-map [remap completion-at-point]
+           'irony-completion-at-point-async)
+         (define-key irony-mode-map [remap complete-symbol]
+           'irony-completion-at-point-async))
+           (add-hook 'irony-mode-hook 'my-irony-mode-hook)
+           (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
+           (when (eq system-type 'windows-nt)
+         (setq w32-pipe-read-delay 0))
+           (irony-mode 1))
+           
+         (when (derived-mode-p 'c++-mode)
+           ;; useful for c++, help you expand the function headers defined in .h file to a .cpp file.
+           (require 'member-functions)
+           (setq mf--source-file-extension "cpp"))
+         
+         )
 (add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
 
 
@@ -292,22 +301,22 @@
 ; org publish)
 (setq org-publish-project-alist
       '(
-	("org-notes"
-	 :base-directory "~/github/Notes/"
-	 :base-extension "org"
-	 :publishing-directory "~/github/Blog/"
-	 ;:publishing-directory "/ssh:user@server" ;export to server
-	 :exclude "^temp.*.org"
-	 :recursive t
-	 :publishing-function my/org-html-publish-to-html
-	 :headline-levels 4
-	 :author "Howard Hou"
+    ("org-notes"
+     :base-directory "~/github/Notes/"
+     :base-extension "org"
+     :publishing-directory "~/github/Blog/"
+     ;:publishing-directory "/ssh:user@server" ;export to server
+     :exclude "^temp.*.org"
+     :recursive t
+     :publishing-function my/org-html-publish-to-html
+     :headline-levels 4
+     :author "Howard Hou"
          :email "lianhong.hou@gmail.com"
-	 :auto-sitemap t                
-	 :sitemap-filename "index.org"  
-	 :sitemap-title "Sitemap"
-	 :html-head "<link rel=\"stylesheet\" type=\"text/css\" href=\"http://lianhonghou.github.io/css/norang.css\"/>"
-	 :html-postamble "
+     :auto-sitemap t                
+     :sitemap-filename "index.org"  
+     :sitemap-title "Sitemap"
+     :html-head "<link rel=\"stylesheet\" type=\"text/css\" href=\"http://lianhonghou.github.io/css/norang.css\"/>"
+     :html-postamble "
                           <div id=\"disqus_thread\"></div>
                           <script type=\"text/javascript\">
                             var disqus_shortname = 'howardhou';
@@ -331,13 +340,13 @@
                           <p class=\"postamble\">Created by %a with %c</p>
                          ")
 
-	("org-static"                ;Used to publish static files
-	 :base-directory "~/github/Notes/"
-	 :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf"
-	 :publishing-directory "~/github/Blog/"
-	 :recursive t
-	 :publishing-function org-publish-attachment)
-	("org" :components ("org-notes" "org-static"))))
+    ("org-static"                ;Used to publish static files
+     :base-directory "~/github/Notes/"
+     :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf"
+     :publishing-directory "~/github/Blog/"
+     :recursive t
+     :publishing-function org-publish-attachment)
+    ("org" :components ("org-notes" "org-static"))))
 
 (defun my/org-html-publish-to-html (plist filename pub-dir)
   (let ((org-confirm-babel-evaluate nil))
@@ -347,14 +356,26 @@
   (interactive)
   (save-buffer)
   (let ((org-confirm-babel-evaluate nil)
-	(default-directory (concat default-directory "../temp_html"))
-	(browse-url-chromium-program "C:/Program Files (x86)/Google/Chrome/Application/chrome.exe")
-	(browse-url-browser-function #'browse-url-chromium)
-	(org-html-head (concat "<link rel=\"stylesheet\" type=\"text/css\" href=\"" (expand-file-name "~") "/github/Blog/css/norang.css\"/>")))
+    (default-directory (concat default-directory "../temp_html"))
+    (browse-url-chromium-program "C:/Program Files (x86)/Google/Chrome/Application/chrome.exe")
+    (browse-url-browser-function #'browse-url-chromium)
+    (org-html-head (concat "<link rel=\"stylesheet\" type=\"text/css\" href=\"" (expand-file-name "~") "/github/Blog/css/norang.css\"/>")))
     ;(when (member "image" (directory-files ".")) (copy-directory "./image" default-directory)) it does not work, need debug it in future
     (org-html-export-to-html)
     (browse-url (org-export-output-file-name ".html" nil default-directory))))
 
+
+(custom-set-faces
+ ;; other faces
+; '(magit-diff-added ((((type tty)) (:foreground "green"))))
+; '(magit-diff-added-highlight ((((type tty)) (:foreground "LimeGreen"))))
+ '(magit-diff-context-highlight ((((type tty)) (:foreground "default"))))
+ '(magit-diff-file-heading ((((type tty)) nil)))
+ '(magit-diff-removed ((((type tty)) (:foreground "red"))))
+ '(magit-diff-removed-highlight ((((type tty)) (:foreground "IndianRed"))))
+ '(magit-diff-removed ((((type tty)) (:foreground "blue"))))
+ '(magit-diff-removed-highlight ((((type tty)) (:foreground "IndianBlue"))))
+ '(magit-section-highlight ((((type tty)) (:foreground "black")))))
 
 ;;;;;;;;;;;to be used in future;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; yasnippet
@@ -367,8 +388,8 @@
 ;;     (if (looking-at "\\_>") t
 ;;       (backward-char 1)
 ;;       (if (looking-at "\\.") t
-;; 	(backward-char 1)
-;; 	(if (looking-at "->") t nil)))))
+;;     (backward-char 1)
+;;     (if (looking-at "->") t nil)))))
 
 ;; (defun do-yas-expand ()
 ;;   (let ((yas/fallback-behavior 'return-nil))
@@ -379,10 +400,10 @@
 ;;   (if (minibufferp)
 ;;       (minibuffer-complete)
 ;;     (if (or (not yas/minor-mode)
-;; 	    (null (do-yas-expand)))
-;; 	(if (check-expansion)
-;; 	    (company-complete-common)
-;; 	  (indent-for-tab-command)))))
+;;         (null (do-yas-expand)))
+;;     (if (check-expansion)
+;;         (company-complete-common)
+;;       (indent-for-tab-command)))))
 ;; ; solving conflicts in Company and Yasnippet
 ;; (global-set-key [tab] 'tab-indent-or-complete)
 
